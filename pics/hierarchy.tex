@@ -1,0 +1,73 @@
+\begin{tikzpicture}[xscale = 1.5]
+	
+	\tikzset{every path/.style={->, thick}}
+	
+%    \node[vert] (p) at (0, 0) {$\SUPP \cap \coSUPP = \P = \RP \cap \coRP$};
+	\node[vert, fill = black!10] (suppco) at (-1.8, 0) {$\SUPP \cap \coSUPP$};
+	\node[circle, draw = red] at (-0.52, 0) {$=$};
+	\node[vert] (p) at (0, 0) {$\P$};
+	\node at (0.52, 0) {$=$};
+	\node[vert] (rpco) at (1.5, 0) {$\RP \cap \coRP$};
+
+    \node[vert, fill = black!10] (supp) at (-4.5, 2) {$\SUPP$};
+    \node[vert, fill = black!10] (cosupp) at (-1.5, 2) {$\coSUPP$};
+    \node[vert, fill = black!10] (psupp) at (-3, 4) {$\P^{\SUPP}$};
+    \node[vert] (upp) at (-3, 8) {$\UPP$};
+
+    \node[vert] (rp) at (1.5, 2) {$\RP$};
+    \node[vert] (corp) at (4.5, 2) {$\coRP$};
+    \node[vert, fill = black!10] (cosmar) at (1.5, 8) {$\SMAR$};
+    \node[vert, fill = black!10] (smar) at (4.5, 8) {$\coSMAR$};
+    \node[vert] (bpp) at (3, 10) {$\BPP$};
+
+    \node[vert] (peq) at (0, 2) {$\P^{\EQ}$};
+    \node[vert] (prp) at (3, 4) {$\P^{\RP}$};
+
+    \node[vert, fill = black!10] (smarco) at (3, 6) {$\SMAR \cap \coSMAR$};
+
+    \node[vert, fill = black!10] (gam2) at (0, 4) {$\Gamma_2$};
+
+
+    \draw (suppco) -- (supp);
+    \draw (suppco) -- (cosupp);
+    \draw (cosupp) -- (psupp);
+    \draw (supp) -- (psupp);
+    \draw (psupp) -- (upp) node[circle, midway, fill = white, draw = green!80!gray] {$\neq$};
+
+
+    \draw (rpco) -- (rp);
+    \draw (rpco) -- (corp);
+    \draw[brown] (rp) -- (cosmar);
+    \draw[brown] (corp) -- (smar);
+    \draw (p) -- (peq);
+    \draw (smarco) -- (cosmar);
+    \draw (smarco) -- (smar);
+    \draw (smar) -- (bpp);
+    \draw (cosmar) -- (bpp);
+
+    \draw (peq) -- (gam2);
+    \draw[blue] (gam2) to[out = 20, in = -130] (smarco);
+    \draw (rp) -- (prp);
+    \draw (corp) -- (prp);
+    
+    \draw (peq) -- (psupp);
+    \draw (peq) -- (prp);
+    
+    \draw (prp) to[out = 30, in = -70] (bpp);
+    \draw[thin, dashed] (bpp) to[out = -110, in = 150]  node[circle, midway, fill = white, draw = cyan, solid, thick] {$?$} (prp);
+    
+    \draw[thin, dashed] (gam2) to[out = -50, in = 60]  node[circle, midway, fill = white, draw = cyan, solid, thick] {$?$} (peq);
+
+    \draw[thin, dashed] (gam2) -- (upp)
+    	node[circle, midway, fill = white, draw = cyan, solid, thick] {$?$};
+
+    \node at (0, 6.9) {};
+    
+	\node[minimum size=5pt, fill = green!70!gray, label = right:{\Cref{prop:psup-nin-upp}}] at (-4, -1) {};
+	\node[minimum size=5pt, fill = red!60, label = right:{\Cref{prop:supp-cap-cosupp}}] at (-1, -1) {};
+	\node[minimum size=5pt, fill = blue!60, label = right:{\Cref{prop:gamma-in-smar}}] at (2, -1) {};
+	\node[minimum size=5pt, fill = brown!70, label = right:{\Cref{prop:rp-in-smar}}] at (-4, -1.8) {};
+	\node[minimum size=5pt, fill = cyan!60, label = right:{The three open problems stated in \Cref{sec:open-problems}}] at (-1, -1.8) {};
+ 
+
+\end{tikzpicture}

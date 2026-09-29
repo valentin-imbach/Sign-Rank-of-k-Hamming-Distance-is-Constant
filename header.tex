@@ -1,0 +1,440 @@
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{url}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pics/tikz-3dplot-circleofsphere}
+\usepackage{listofitems}
+\usepackage{thmtools,thm-restate}
+\usepackage[noabbrev,capitalise,nameinlink]{cleveref}
+\usepackage{mathtools}
+\usepackage{xspace}
+\usepackage{verbatim}
+\usepackage{mathrsfs}
+\usepackage{pgf}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{todo}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{derivative}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{diagbox}
+\usepackage{nicematrix}
+\usepackage[most]{tcolorbox}
+\usepackage{caption}
+
+
+
+\usetikzlibrary{
+    babel,
+    arrows,
+	calc,
+	patterns,
+	intersections,
+    backgrounds,
+    trees,
+    mindmap,
+    fadings,
+	decorations.pathreplacing,
+	decorations.pathmorphing,
+	decorations.text,
+	decorations.markings,
+    scopes,
+	shapes,
+	positioning
+}
+
+%-------------------------------------------------------------------------------
+% Fonts
+%-------------------------------------------------------------------------------
+\usepackage{dsfont}
+
+\newcommand*\ie{i.\kern.1em e.,\ }
+\newcommand*\eg{e.\kern.1em g.,\ }
+\newcommand*\cf{c.\kern.1em f.\ }
+\newcommand*\almev{a.\kern.1em e.\ }
+
+% -------------------------------------------
+% COLORS
+% -------------------------------------------
+
+% iroshizuku color names
+\definecolor{ama-iro}{RGB}{0, 158, 243.0}
+\definecolor{fuyu-gaki}{RGB}{251, 74, 52}
+\definecolor{momiji}{RGB}{245, 70, 111}
+\definecolor{hotaru-bi}{RGB}{229,221,58} % yellowish
+\definecolor{kon-peki}{RGB}{1,120,217}
+\definecolor{shin-kai}{RGB}{77,98,152}
+\definecolor{shin-ryoku}{RGB}{1,145,97}
+\definecolor{yama-budo}{RGB}{171,14,122}
+
+%\definecolor{theoremcolor}{RGB}{77,98,152}
+%\definecolor{examplecolor}{RGB}{210, 229, 205}
+%\definecolor{examplecolor}{RGB}{255, 213, 179}
+%\definecolor{definitioncolor}{RGB}{255, 213, 179}
+
+\definecolor{citecolor}{HTML}{5E9100}
+
+\definecolor{theoremcolor}{HTML}{FFE1D9}
+\definecolor{resultcolor}{HTML}{FFE1D9}
+%\definecolor{theoremcolor}{HTML}{C9E1F1}
+%\definecolor{resultcolor}{HTML}{C9E1F1}
+
+\definecolor{constraintcolor}{HTML}{BBD49B}
+\definecolor{goalcolor}{HTML}{CAE4A7}
+
+\definecolor{remarkcolor}{HTML}{E3EEC7}
+
+\definecolor{definitioncolor}{HTML}{FCDFBE}
+
+\definecolor{examplecolor}{HTML}{F9E9D9}
+\definecolor{questioncolor}{HTML}{DDE8EB}
+\definecolor{conjecturecolor}{HTML}{DDE8EB}
+
+\definecolor{captioncolor}{RGB}{128,128,128}
+
+
+\newcommand{\nathan}[1]{{\color{ama-iro} \textbf{NH:} #1}}
+\newcommand{\lorenzo}[1]{{\color{shin-ryoku}\textbf{LB:} #1}}
+
+
+% hyperref colors:
+
+
+% QED symbol
+
+%--------------------------------------------------------------------------------
+% Caption formatting
+%--------------------------------------------------------------------------------
+
+\definecolor{captioncolor}{RGB}{128,128,128}
+
+\captionsetup[figure]{labelfont={tt, small, color=momiji}, textfont={tt,small,color=captioncolor},}
+
+%-------------------------------------------------------------------------------
+% Theorems
+%-------------------------------------------------------------------------------
+\topsep=1em % spacing between plain theorems
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{question}[theorem]{Open Problem}
+\newtheorem{question*}{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\crefname{claim}{Claim}{Claims}
+\crefname{fact}{Fact}{Facts}
+
+\theoremstyle{definition}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{goal}[theorem]{Goal}
+\newtheorem{goal*}{Goal}
+
+\theoremstyle{plain}
+
+% --------------------------------------------------------------------------------
+% RESTATED THEOREMS
+% --------------------------------------------------------------------------------
+
+\newenvironment{rtheorem}[1]{\renewcommand\thetheorem{\ref*{#1}}\begin{theorem}[Restated]}{\end{theorem}}
+
+\newenvironment{rlemma}[1]{\renewcommand\thelemma{\ref*{#1}}\begin{lemma}[Restated]}{\end{lemma}}
+
+\newenvironment{rdefinition}[1]{\renewcommand\thedefinition{\ref*{#1}}\begin{definition}[Restated]}{\end{definition}}
+
+% --------------------------------------------------------------------------------
+% BOX THEOREMS
+% --------------------------------------------------------------------------------
+
+\newenvironment{boxtheorem}{\begin{theorem}}{\end{theorem}}
+\tcolorboxenvironment{boxtheorem}{colback=theoremcolor, colframe=white,
+    colbacktitle=theoremcolor, coltitle=theoremcolor}
+
+\newenvironment{rboxtheorem}[1]{\begin{rtheorem}{#1}}{\end{rtheorem}}
+\tcolorboxenvironment{rboxtheorem}{colback=theoremcolor, colframe=white,
+	colbacktitle=theoremcolor, coltitle=theoremcolor}
+
+\newenvironment{boxlemma}{\begin{lemma}}{\end{lemma}}
+\tcolorboxenvironment{boxlemma}{colback=resultcolor, colframe=white,
+    colbacktitle=resultcolor, coltitle=resultcolor}
+
+\newenvironment{rboxlemma}[1]{\begin{rlemma}{#1}}{\end{rlemma}}
+\tcolorboxenvironment{rboxlemma}{colback=resultcolor, colframe=white,
+	colbacktitle=resultcolor, coltitle=resultcolor}
+
+\newenvironment{boxproposition}{\begin{proposition}}{\end{proposition}}
+\tcolorboxenvironment{boxproposition}{colback=resultcolor, colframe=white,
+    colbacktitle=resultcolor, coltitle=resultcolor}
+
+\newenvironment{boxcorollary}{\begin{corollary}}{\end{corollary}}
+\tcolorboxenvironment{boxcorollary}{colback=resultcolor, colframe=white,
+    colbacktitle=resultcolor, coltitle=resultcolor}
+
+
+\newenvironment{boxobservation}{\begin{observation}}{\end{observation}}
+\tcolorboxenvironment{boxobservation}{colback=resultcolor, colframe=white,
+    colbacktitle=resultcolor, coltitle=resultcolor}
+
+\newenvironment{boxquestion}{\begin{question}}{\end{question}}
+\tcolorboxenvironment{boxquestion}{colback=questioncolor, colframe=white,
+    colbacktitle=questioncolor, coltitle=shin-kai}
+\newenvironment{boxquestion*}{\begin{question*}}{\end{question*}}
+\tcolorboxenvironment{boxquestion*}{colback=questioncolor, colframe=white,
+    colbacktitle=questioncolor, coltitle=questioncolor}
+
+\newenvironment{boxdefinition}{\begin{definition}}{\end{definition}}
+\tcolorboxenvironment{boxdefinition}{colback=definitioncolor, colframe=white,
+    colbacktitle=definitioncolor, coltitle=definitioncolor}
+
+\newenvironment{rboxdefinition}[1]{\begin{rdefinition}{#1}}{\end{rdefinition}}
+\tcolorboxenvironment{rboxdefinition}{colback=definitioncolor, colframe=white,
+	colbacktitle=definitioncolor, coltitle=definitioncolor}
+
+\newenvironment{boxassumption}{\begin{assumption}}{\end{assumption}}
+\tcolorboxenvironment{boxassumption}{colback=definitioncolor, colframe=white,
+    colbacktitle=definitioncolor, coltitle=definitioncolor}
+
+\newenvironment{boxexample}{\begin{example}}{\end{example}}
+\tcolorboxenvironment{boxexample}{colback=examplecolor, colframe=white,
+    colbacktitle=examplecolor, coltitle=examplecolor}
+
+\newtheorem{exercise}[theorem]{Exercise}
+\newenvironment{boxexercise}{\begin{exercise}}{\end{exercise}}
+\tcolorboxenvironment{boxexercise}{colback=exercisecolor, colframe=white,
+    colbacktitle=exercisecolor, coltitle=exercisecolor}
+
+\newenvironment{boxgoal}{\begin{goal}}{\end{goal}}
+\tcolorboxenvironment{boxgoal}{colback=goalcolor, colframe=white,
+    colbacktitle=goalcolor, coltitle=goalcolor}
+
+\newenvironment{boxgoal*}{\begin{goal*}}{\end{goal*}}
+\tcolorboxenvironment{boxgoal*}{colback=goalcolor, colframe=white,
+    colbacktitle=goalcolor, coltitle=goalcolor}
+
+\newenvironment{boxremark}{\begin{remark}}{\end{remark}}
+\tcolorboxenvironment{boxremark}{colback=remarkcolor, colframe=white,
+    colbacktitle=remarkcolor, coltitle=remarkcolor}
+
+\newenvironment{boxconjecture}{\begin{conjecture}}{\end{conjecture}}
+\tcolorboxenvironment{boxconjecture}{colback=conjecturecolor, colframe=white,
+    colbacktitle=conjecturecolor, coltitle=shin-kai}
+\newenvironment{boxconjecture*}{\begin{conjecture*}}{\end{conjecture*}}
+\tcolorboxenvironment{boxconjecture*}{colback=conjecturecolor, colframe=white,
+    colbacktitle=conjecturecolor, coltitle=conjecturecolor}
+
+%-------------------------------------------------------------------------------
+% Environments
+%-------------------------------------------------------------------------------
+
+\newcommand{\ignore}[1]{}
+
+
+%-------------------------------------------------------------------------------
+% Common functions
+%-------------------------------------------------------------------------------
+\DeclareMathOperator{\supp}{supp}   % support
+\DeclareMathOperator{\poly}{poly}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\dist}{dist}
+
+
+\newcommand{\VC}{\mathsf{VC}}
+
+%-------------------------------------------------------------------------------
+% Probability stuff
+%-------------------------------------------------------------------------------
+
+% Variance:
+\DeclareMathOperator{\Cov}{Cov}
+%\newcommand{\Var}[1]{\bV \left[ #1 \right]}
+\newcommand{\Var}[1]{\mathrm{Var} \left[ #1 \right]}
+\newcommand{\Varu}[2]{\underset{ #1 } {\mathrm{Var}} \left[ #2 \right]}
+\newcommand{\Varuc}[3]{\underset{ #1 } {\mathrm{Var}} \left[ #2 \;\; \left| \;\; #3 \right. \right]}
+
+
+% Influence:
+\newcommand{\Inf}[1]{\mathrm{Inf} \left[ #1 \right]}
+
+
+% Expectation:
+\newcommand{\Ex}[1]{\bE \left[ #1 \right]}
+\newcommand{\Exu}[2]{\underset{#1} \bE \left[ #2 \right] }
+\newcommand{\Exuc}[3]{\underset{#1} \bE \left[ #2 \;\; \left| \;\; #3
+\right.\right] }
+
+% Probability:
+\renewcommand{\Pr}[1]{\bP \left[ #1 \right]} % Probability
+\newcommand{\Pru}[2]{\underset{ #1 }\bP \left[ #2 \right]}
+\newcommand{\Pruc}[3]{\underset{ #1 }\bP \left[ #2 \;\; \mid \;\; #3 \right]}
+
+%-------------------------------------------------------------------------------
+% Common symbols
+%-------------------------------------------------------------------------------
+% definitions (from https://tex.stackexchange.com/questions/4216/how-to-typeset-correctly)
+\newcommand*{\define}{\coloneqq} % Mika: This is the standard symbol that the average reader is used to.
+
+% exponential function
+%\renewcommand{\exp}[1]{\mathrm{exp}\left( #1 \right)}
+
+% floor and ceiling
+\newcommand{\floor}[1]{\ensuremath{\lfloor #1 \rfloor}}
+\newcommand{\ceil}[1]{\ensuremath{\lceil #1 \rceil}}
+
+\newcommand{\inn}[1]{\langle #1 \rangle}
+
+%\newcommand{\abs}[1]{| #1 |}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\newcommand{\id}{\ensuremath{\mathds{1}}}
+\newcommand{\ind}[1]{\mathds{1} \left[ #1 \right] }
+
+% question-mark relations
+\newcommand\ltquestion{\stackrel{\mathclap{\normalfont\mbox{\tiny ?}}}{<}}
+\newcommand\lequestion{\stackrel{\mathclap{\normalfont\mbox{\tiny ?}}}{\le}}
+\newcommand\gtquestion{\stackrel{\mathclap{\normalfont\mbox{\tiny ?}}}{>}}
+\newcommand\gequestion{\stackrel{\mathclap{\normalfont\mbox{\tiny ?}}}{\ge}}
+\newcommand\eqquestion{\stackrel{\mathclap{\normalfont\mbox{\tiny ?}}}{=}}
+
+\newcommand\lesssimquestion{\stackrel{\mathclap{\normalfont\mbox{?}}}{\lesssim}}
+\newcommand\gtrsimquestion{\stackrel{\mathclap{\normalfont\mbox{?}}}{\gtrsim}}
+\newcommand\approxquestion{\stackrel{\mathclap{\normalfont\mbox{?}}}{\approx}}
+
+%-------------------------------------------------------------------------------
+% Common sets
+%-------------------------------------------------------------------------------
+\newcommand{\zo}{\{0,1\}}
+\newcommand{\pmset}{\{\pm 1\}}
+
+%-------------------------------------------------------------------------------
+% Shortcuts for special characters
+%-------------------------------------------------------------------------------
+
+% Calligraphic characters
+\newcommand{\cA}{\ensuremath{\mathcal{A}}}
+\newcommand{\cB}{\ensuremath{\mathcal{B}}}
+\newcommand{\cC}{\ensuremath{\mathcal{C}}}
+\newcommand{\cD}{\ensuremath{\mathcal{D}}}
+\newcommand{\cE}{\ensuremath{\mathcal{E}}}
+\newcommand{\cF}{\ensuremath{\mathcal{F}}}
+\newcommand{\cG}{\ensuremath{\mathcal{G}}}
+\newcommand{\cH}{\ensuremath{\mathcal{H}}}
+\newcommand{\cI}{\ensuremath{\mathcal{I}}}
+\newcommand{\cJ}{\ensuremath{\mathcal{J}}}
+\newcommand{\cK}{\ensuremath{\mathcal{K}}}
+\newcommand{\cL}{\ensuremath{\mathcal{L}}}
+\newcommand{\cM}{\ensuremath{\mathcal{M}}}
+\newcommand{\cN}{\ensuremath{\mathcal{N}}}
+\newcommand{\cO}{\ensuremath{\mathcal{O}}}
+\newcommand{\cP}{\ensuremath{\mathcal{P}}}
+\newcommand{\cQ}{\ensuremath{\mathcal{Q}}}
+\newcommand{\cR}{\ensuremath{\mathcal{R}}}
+\newcommand{\cS}{\ensuremath{\mathcal{S}}}
+\newcommand{\cT}{\ensuremath{\mathcal{T}}}
+\newcommand{\cU}{\ensuremath{\mathcal{U}}}
+\newcommand{\cV}{\ensuremath{\mathcal{V}}}
+\newcommand{\cY}{\ensuremath{\mathcal{Y}}}
+\newcommand{\cX}{\ensuremath{\mathcal{X}}}
+\newcommand{\cZ}{\ensuremath{\mathcal{Z}}}
+
+% Blackboard Bold characters
+\newcommand{\bA}{\ensuremath{\mathbb{A}}}
+\newcommand{\bB}{\ensuremath{\mathbb{B}}}
+\newcommand{\bC}{\ensuremath{\mathbb{C}}}
+\newcommand{\bD}{\ensuremath{\mathbb{D}}}
+\newcommand{\bE}{\ensuremath{\mathbb{E}}}
+\newcommand{\bF}{\ensuremath{\mathbb{F}}}
+\newcommand{\bN}{\ensuremath{\mathbb{N}}}
+\newcommand{\bP}{\ensuremath{\mathbb{P}}}
+\newcommand{\bR}{\ensuremath{\mathbb{R}}}
+\newcommand{\bS}{\ensuremath{\mathbb{S}}}
+\newcommand{\bT}{\ensuremath{\mathbb{T}}}
+\newcommand{\bV}{\ensuremath{\mathbb{V}}}
+\newcommand{\bZ}{\ensuremath{\mathbb{Z}}}
+
+% Bold characters
+%\newcommand{\bA}{\boldsymbol{A}}
+%\newcommand{\bB}{\boldsymbol{B}}
+%\newcommand{\bC}{\boldsymbol{C}}
+%\newcommand{\bD}{\boldsymbol{D}}
+%\newcommand{\bE}{\boldsymbol{E}}
+%\newcommand{\bF}{\boldsymbol{F}}
+%\newcommand{\bG}{\boldsymbol{G}}
+%\newcommand{\bH}{\boldsymbol{H}}
+%\newcommand{\bI}{\boldsymbol{I}}
+%\newcommand{\bJ}{\boldsymbol{J}}
+%\newcommand{\bK}{\boldsymbol{K}}
+%\newcommand{\bL}{\boldsymbol{L}}
+%\newcommand{\bM}{\boldsymbol{M}}
+%\newcommand{\bN}{\boldsymbol{N}}
+%\newcommand{\bO}{\boldsymbol{O}}
+%\newcommand{\bP}{\boldsymbol{P}}
+%\newcommand{\bQ}{\boldsymbol{Q}}
+%\newcommand{\bR}{{\boldsymbol{R}}}
+%\newcommand{\bS}{\boldsymbol{S}}
+%\newcommand{\bT}{{\boldsymbol{T}}}
+%\newcommand{\bU}{\boldsymbol{U}}
+%\newcommand{\bV}{\boldsymbol{V}}
+%\newcommand{\bW}{\boldsymbol{W}}
+%\newcommand{\bX}{\boldsymbol{X}}
+%\newcommand{\bY}{\boldsymbol{Y}}
+%\newcommand{\bZ}{\boldsymbol{Z}}
+
+
+
+\tikzset{
+    >=latex,
+    graph-vert/.style 2 args = {
+        draw,
+        color = #1!70!black,
+        circle,
+        thick,
+        inner sep = 0pt,
+        minimum size = #2,
+        fill = #1!50,
+        fill opacity = 0.5
+    },
+    graph-vert/.default = {blue}{0.15cm},
+    triangle/.style 2 args = {
+        #1!70!black,
+        fill = #1!30,
+        fill opacity = #2
+    },
+    universe-rect/.pic = {
+        \fill[black!10, rounded corners = 3pt] (-0.1, 0.1) rectangle (#1 + 0.1, -#1 - 0.1);
+        \fill[white] (0, 0) rectangle (#1, -#1);
+        \draw[step = 0.5, black] (0, 0) grid (#1, -#1);
+        \draw[thick] (-0, 0) rectangle (#1, -#1);
+    },
+    vert/.style = {
+        draw,
+        thick,
+        rectangle,
+        rounded corners = 2pt,
+%        ellipse
+    },
+    semisim/.style = {
+        ->,
+        blue,
+        dashed,
+        decorate,
+        decoration = {
+            snake,
+            amplitude = 0.5,
+            segment length = 2
+        }
+    }
+}

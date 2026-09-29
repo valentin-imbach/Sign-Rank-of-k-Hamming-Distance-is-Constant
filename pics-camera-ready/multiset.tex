@@ -1,0 +1,39 @@
+\begin{tikzpicture}[scale = 0.4]
+	\fill[green!30] (0,5) rectangle (2,0);
+	\fill[green!30] (3,10) rectangle (5,0);
+	\fill[green!30] (6,2) rectangle (8,0);
+	\fill[green!10] (9,4) rectangle (11,0);
+	\fill[green!30] (12,8) rectangle (14,0);
+	
+	\draw[blue!50, dashed, thick] (-1,5) -- (15,5);
+%	\draw[red!50, dashed, thick] (-1,6) -- (15,6);
+	
+	\node at (1, 1) {$\Phi_1$};
+	\node at (4, 1) {$\Phi_2$};
+	\node at (7, 1) {$\Phi_3$};
+	\node at (10.1, 1) {$\cdots$};
+	\node at (13, 1) {$\Phi_M$};
+	
+	\draw [->] (16, 4) -- (20, 4) node[midway, above] {$\pi_i$};
+	
+	\tikzset{shift={(22,0)}}
+	
+	\fill[blue!30] (0,5) rectangle (2,0);
+	\fill[blue!30] (3,5) rectangle (5,0);
+	\fill[blue!30] (6,2) rectangle (8,0);
+	\fill[blue!10] (9,4) rectangle (11,0);
+	\fill[blue!30] (12,5) rectangle (14,0);
+	
+%	\fill[red!30] (3,6) rectangle (5,5);
+%	\fill[red!30] (12,6) rectangle (14,5);
+	
+	\node at (1, 1) {$\Psi_1$};
+	\node at (4, 1) {$\Psi_2$};
+	\node at (7, 1) {$\Psi_3$};
+	\node at (10.1, 1) {$\cdots$};
+	\node at (13, 1) {$\Psi_M$};
+	
+	\draw [decorate,decoration={brace, amplitude=5pt, raise=2mm}]
+	(14,5) -- (14,0) node[midway, xshift = 6mm]{$t$};
+
+\end{tikzpicture}
